@@ -1,0 +1,145 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin: 0;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.subtext {
+    font-size: 1.2rem;
+    color: #a3cfe6;
+    margin-top: 10px;
+}
+
+/* Container for all content */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease-out;
+}
+
+textarea, input {
+    width: 90%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 2px solid #009688;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 1rem;
+}
+
+textarea#outputText {
+    height: 120px;
+}
+
+input#key {
+    font-style: italic;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #009688, #00796b);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #00796b, #004d40);
+    transform: scale(1.1);
+}
+
+#dragArea {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 3px dashed #009688;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #a3cfe6;
+    font-style: italic;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+#dragArea:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Disclaimer Section */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.disclaimer h3 {
+    color: #00bcd4;
+    margin-bottom: 10px;
+}
+
+.disclaimer p {
+    font-size: 0.9rem;
+    color: #b0c4de;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    textarea, input {
+        width: 95%;
+    }
+
+    button {
+        width: 95%;
+        padding: 10px;
+    }
+}
