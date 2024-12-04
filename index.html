@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption & Decryption Tool</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="fadeIn">Text Encryption and Decryption</h1>
+        <p class="subtext">Securely encrypt and decrypt your text with various methods.</p>
+    </header>
 
+    <div id="dragArea" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
+        <p>Drag text here or type below:</p>
+    </div>
+
+    <textarea id="inputText" placeholder="Enter text to encrypt or decrypt..."></textarea>
+    <input type="text" id="key" placeholder="Encryption key (for AES)">
+
+    <div class="button-group">
+        <button onclick="caesarEncrypt()">Caesar Encrypt</button>
+        <button onclick="caesarDecrypt()">Caesar Decrypt</button>
+        <button onclick="aesEncrypt()">AES Encrypt</button>
+        <button onclick="aesDecrypt()">AES Decrypt</button>
+        <button onclick="copyToClipboard()">Copy to Clipboard</button>
+    </div>
+
+    <h2>Result:</h2>
+    <textarea id="outputText" readonly></textarea>
+
+    <footer>
+        <div class="disclaimer">
+            <h3>Disclaimer</h3>
+            <p>This tool is for educational purposes only. AES encryption provides security, but always use official libraries and secure environments for critical data.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
