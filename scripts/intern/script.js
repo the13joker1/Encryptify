@@ -1,7 +1,7 @@
 // Dynamically load SweetAlert2
 function loadSweetAlert() {
     const script = document.createElement('script');
-    script.src = '/scripts/extern/sweetalert2.all.min.js';  // Change this path if needed
+    script.src = 'scripts/extern/sweetalert2.all.min.js';  // Change this path if needed
     script.onload = () => console.log('SweetAlert2 loaded successfully!');
     script.onerror = () => {
         console.error('Failed to load SweetAlert2');
