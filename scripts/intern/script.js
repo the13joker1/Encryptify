@@ -1,10 +1,28 @@
-// Load SweetAlert library
+// Dynamically load SweetAlert2
 function loadSweetAlert() {
     const script = document.createElement('script');
-    script.src = '/scripts/intern/sweetalert2.all.min.js';
+    script.src = '/scripts/extern/sweetalert2.all.min.js';  // Change this path if needed
+    script.onload = () => console.log('SweetAlert2 loaded successfully!');
+    script.onerror = () => {
+        console.error('Failed to load SweetAlert2');
+        alert('Could not load SweetAlert2. Please check the network.');
+    };
     document.head.appendChild(script);
 }
 loadSweetAlert();
+
+// Dynamically load CryptoJS (ensure this is loaded before usage)
+function loadCryptoJS() {
+    const script = document.createElement('script');
+    script.src = 'scripts/extern/crypto.js';  // Change this path if needed
+    script.onload = () => console.log('CryptoJS loaded successfully!');
+    script.onerror = () => {
+        console.error('Failed to load CryptoJS');
+        alert('Could not load CryptoJS. Please check the network.');
+    };
+    document.head.appendChild(script);
+}
+loadCryptoJS();
 
 // Caesar Cipher Encryption
 function caesarEncrypt() {
@@ -44,8 +62,10 @@ function aesDecrypt() {
     let key = document.getElementById("key").value || 'default_key';
     try {
         let decrypted = CryptoJS.AES.decrypt(text, key).toString(CryptoJS.enc.Utf8);
-        document.getElementById("outputText").value = decrypted || "Decryption failed!";
-        if (!decrypted) {
+        if (decrypted) {
+            document.getElementById("outputText").value = decrypted;
+        } else {
+            document.getElementById("outputText").value = "Decryption failed!";
             Swal.fire({
                 icon: 'error',
                 title: 'Decryption Failed!',
@@ -55,6 +75,7 @@ function aesDecrypt() {
             });
         }
     } catch {
+        document.getElementById("outputText").value = "Invalid input or decryption error!";
         Swal.fire({
             icon: 'error',
             title: 'Decryption Error',
